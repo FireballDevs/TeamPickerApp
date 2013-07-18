@@ -14,7 +14,7 @@ public class TeamCalculator {
 
 	/**
 	 * Randomize
-	 * @author your mom
+	 * @author test test
 	 * 
 	 * @param  List<Player> - list of all players
 	 * @param numberOfTeams
