@@ -5,12 +5,14 @@ public class Player {
 	private String name;
 	private int position;
 	
-	
-	
-	public Player(String new_name, int new_position) {
-		name = new_name;
-		position = new_position;
-		
+	/**
+	 * Player constructor
+	 * @param name
+	 * @param position
+	 */
+	public Player(String name, int position) {
+		this.name = name;
+		this.position = position;
 	}
 	
 	/**

@@ -14,8 +14,4 @@ public class PlayerTest extends TestCase {
 		assertEquals(t.getPosition(), 2);
 		
 	}
-	
-	
-	
-	
 }

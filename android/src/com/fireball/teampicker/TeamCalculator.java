@@ -3,52 +3,68 @@
  */
 package com.fireball.teampicker;
 
-import com.fireball.teampicker.Team;
-import com.fireball.teampicker.Player;
+import java.util.ArrayList;
+import java.util.Random;
 
 /**
- * Team Calculator contains methods for manipulating the Team Object (an array of players)
- * 
+ * Team Calculator contains methods for manipulating the Team Object (an array
+ * of players)
  */
 public class TeamCalculator {
 
+	private static Random m_rand = new Random(System.currentTimeMillis());
+
 	/**
-	 * Randomize
-	 * @author your mom
+	 * Randomly creates teams with the names specified by placing an array of
+	 * players into teams by name
 	 * 
-	 * @param  List<Player> - list of all players
-	 * @param numberOfTeams
-	 * @return RandomizedTeams[] - array of two or more randomized teams
+	 * @param teamNames
+	 *            array of team names
+	 * @param players
+	 *            array of player objects
+	 * @return array of two or more randomized teams
 	 */
-	public Team[] Randomize(String[] teamNames, Player[] players) {		
+	public static Team[] Randomize(String[] teamNames, Player[] players) {
+
+		// turn the array of players into a list so we can do efficient
+		// randomization without lots of reallocation
+		ArrayList<Player> playerList = new ArrayList<Player>(players.length);
+		for (Player p : players) {
+			playerList.add(p);
+		}
 		
-		// Assuming teamNames.length = number of teams and players.length = number of players
-		Team randomizedTeams = new Team[teamNames.length];			
-		int maxPerTeam = (players.length + teamNames.length - 1) / teamNames.length;
-				
-		// Randomize players array
-		for( int i = 0; i < players.length; i++ ){
-			// code: swap player with another random player (between 0 and (players.length-1))
+		final int numTeams = teamNames.length;
+		int teamIndex = 0;
+		
+		//create the array of teams from the array of names
+		Team[] randomizedTeams = new Team[numTeams];
+		for(; teamIndex < numTeams; teamIndex++)
+		{
+			randomizedTeams[teamIndex] = new Team(teamNames[teamIndex], teamIndex);
+		}
+		
+		//reset team index
+		teamIndex = 0;
+		
+		//distribute all players in the list
+		while (playerList.size() > 0)
+		{
+			//get a random index in the list
+			int randomIndex = m_rand.nextInt(playerList.size());
+			Player p = playerList.remove(randomIndex);
+			randomizedTeams[teamIndex++%numTeams].addPlayer(p);
 		}
 
-		// create playerGroups
-		Player playerGroup = new Player[teamNames.length][maxPerTeam];			
-		
-		// fill in player groups horizontally (alternating groups) with randomized array
-		int k = 0;
-		for(int i = 0; i < maxPerTeam; i++){
-			for (int j = 0; j < randomizedTeams.length; j++){
-				playerGroup[j][i] = players[k];
-				k++;
-			}
-		}
-		
-		//create teams
-		for(int i = 0; i < randomizedTeams.length; i++){
-			randomizedTeams[i] = new Team(teamNames[i], i, playerGroup[i]);
-		}
-		
 		return randomizedTeams;
 	}
 	
+	/**
+	 * Creates a new random number generator with the specified seed.
+	 * Mainly to be used for testing.
+	 * @param seed
+	 */
+	public static void setSeed(int seed)
+	{
+		m_rand = new Random(seed);
+	}
 }
