@@ -1,9 +1,15 @@
 package com.fireball.teampicker;
 
+/**
+ * A player object.
+ * @author Evan Boucher
+ *
+ */
 public class Player {
 	
 	private String name;
 	private int position;
+	private String team_name;
 	
 	
 	
@@ -11,6 +17,15 @@ public class Player {
 		name = new_name;
 		position = new_position;
 		
+	}
+	
+	/**
+	 * Player constructor with just the name.
+	 * @param name
+	 */
+	public Player(String name) {
+		
+		this.name = name;
 	}
 	
 	/**
