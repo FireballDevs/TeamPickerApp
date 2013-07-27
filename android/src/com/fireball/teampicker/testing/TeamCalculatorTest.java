@@ -2,6 +2,7 @@ package com.fireball.teampicker.testing;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Dictionary;
 
 import com.fireball.teampicker.Player;
 import com.fireball.teampicker.Team;
@@ -40,7 +41,8 @@ public class TeamCalculatorTest extends TestCase {
 			playerArray[index] = new Player("Player"
 					+ String.format("%02d", index), index);
 		}
-
+		
+		
 		TeamCalculator.setSeed(55);
 		Team[] teams = TeamCalculator.Randomize(teamNames, playerArray);
 
@@ -114,5 +116,48 @@ public class TeamCalculatorTest extends TestCase {
 		assertEquals("Player46", resultTeam2Names.get(22));
 		assertEquals("Player47", resultTeam2Names.get(23));
 		assertEquals("Player48", resultTeam2Names.get(24));
+	}
+	
+	/**
+	 * Test that the Player to Team dictionary will container the correct values
+	 * The key is a player object, and the value will be the team object.
+	 * 
+	 */
+	public void testPlayerToTeamDict() {
+		String[] teamNames = { "TeamOne", "TeamTwo" };
+
+		final int players = 50;
+		Player[] playerArray = new Player[players];
+		for (int index = 0; index < players; index++) {
+			playerArray[index] = new Player("Player"
+					+ String.format("%02d", index), index);
+		}
+		
+		TeamCalculator.setSeed(70);
+		
+		//The player_to_team_dict is set within this method!
+		Team[] teams = TeamCalculator.Randomize(teamNames, playerArray);
+		
+		//Declare the dictionary so we have access to it
+		Dictionary<Player, Team> player_dict = TeamCalculator.getPlayer_to_team_dict();
+		assertEquals(2, teams.length);
+		assertEquals(25, teams[0].getPlayers().size());
+		assertEquals(25, teams[1].getPlayers().size());
+
+
+		// team 1
+		for (Player p : teams[0].getPlayers()) {
+			//The return value of the dictionary is the team object, get the name to see what team it was.
+			assertEquals("TeamOne", player_dict.get(p).getName());
+		}
+		
+		// team 2
+		for (Player p : teams[1].getPlayers()) {
+			assertEquals("TeamTwo", player_dict.get(p).getName());
+		}
+		
+		//Check to make sure that the dictionary is the same size as all the teams.
+		assertEquals(50,player_dict.size());
+		
 	}
 }
