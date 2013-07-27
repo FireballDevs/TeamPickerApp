@@ -1,12 +1,12 @@
-/**
- * 
- */
 package com.fireball.teampicker;
+
 
 import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.Hashtable;
 import java.util.Random;
+import com.fireball.teampicker.Team;
+
 
 /**
  * Team Calculator contains methods for manipulating the Team Object (an array
@@ -16,10 +16,14 @@ public class TeamCalculator {
 	
 	private static Random m_rand = new Random(System.currentTimeMillis());
 	
-	private static String NULL_TEAM = "NULL_TEAM";
+	private static final String NULL_TEAM = "NULL_TEAM";
 	
-	public static Dictionary<Player, Team> player_to_team_dict = new Hashtable();
+	private static Dictionary<Player, Team> player_to_team_dict = new Hashtable<Player, Team>();
 	
+
+	public static Dictionary<Player, Team> getPlayer_to_team_dict() {
+		return player_to_team_dict;
+	}
 
 	/**
 	 * Randomly creates teams with the names specified by placing an array of
@@ -39,7 +43,7 @@ public class TeamCalculator {
 		 * When we fist call this method, clear out the old dictionary as the values in it
 		 * no longer have any meaning. Let the garbage collector pick up the trash (the old dictionary).
 		 */
-		player_to_team_dict = new Hashtable();
+		player_to_team_dict = new Hashtable<Player, Team>();
 		
 		//HashTable does not like null values when putting objects into a dictionary. Create empty Player.
 		Team team_tmp = new Team(NULL_TEAM, -1);

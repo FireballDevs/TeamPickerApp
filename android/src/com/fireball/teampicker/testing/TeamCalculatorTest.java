@@ -139,26 +139,22 @@ public class TeamCalculatorTest extends TestCase {
 		Team[] teams = TeamCalculator.Randomize(teamNames, playerArray);
 		
 		//Declare the dictionary so we have access to it
-		Dictionary<Player, Team> player_dict = TeamCalculator.player_to_team_dict;
+		Dictionary<Player, Team> player_dict = TeamCalculator.getPlayer_to_team_dict();
 		assertEquals(2, teams.length);
 		assertEquals(25, teams[0].getPlayers().size());
 		assertEquals(25, teams[1].getPlayers().size());
 
-		ArrayList<String> resultTeam1Names = new ArrayList<String>();
-		ArrayList<String> resultTeam2Names = new ArrayList<String>();
 
 		// team 1
 		for (Player p : teams[0].getPlayers()) {
 			//The return value of the dictionary is the team object, get the name to see what team it was.
 			assertEquals("TeamOne", player_dict.get(p).getName());
 		}
-		Collections.sort(resultTeam1Names);
 		
 		// team 2
 		for (Player p : teams[1].getPlayers()) {
 			assertEquals("TeamTwo", player_dict.get(p).getName());
 		}
-		Collections.sort(resultTeam2Names);
 		
 		//Check to make sure that the dictionary is the same size as all the teams.
 		assertEquals(50,player_dict.size());
