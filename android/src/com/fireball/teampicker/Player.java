@@ -10,10 +10,14 @@ public class Player {
 	private String name;
 	private int position;
 	
+	/**
+	 * Player constructor
+	 * @param name
+	 * @param position
+	 */
 	public Player(String new_name, int new_position) {
 		this(new_name);
 		position = new_position;
-		
 	}
 	
 	/**
