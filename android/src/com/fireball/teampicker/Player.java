@@ -9,12 +9,9 @@ public class Player {
 	
 	private String name;
 	private int position;
-	private String team_name;
-	
-	
 	
 	public Player(String new_name, int new_position) {
-		name = new_name;
+		this(new_name);
 		position = new_position;
 		
 	}
