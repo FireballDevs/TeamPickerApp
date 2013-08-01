@@ -7,7 +7,7 @@ import java.util.Hashtable;
 import java.util.Random;
 import com.fireball.teampicker.Team;
 
-
+@SuppressWarnings("unused")
 /**
  * Team Calculator contains methods for manipulating the Team Object (an array
  * of players)
@@ -37,7 +37,7 @@ public class TeamCalculator {
 	 *            array of player objects
 	 * @return array of two or more randomized teams
 	 */
-	public static Team[] Randomize(String[] teamNames, Player[] players) {
+	public static Team[] Randomize(String[] teamNames, ArrayList<Player> playerList) {
 		
 		/*
 		 * When we fist call this method, clear out the old dictionary as the values in it
@@ -46,16 +46,16 @@ public class TeamCalculator {
 		player_to_team_dict = new Hashtable<Player, Team>();
 		
 		//HashTable does not like null values when putting objects into a dictionary. Create empty Player.
-		Team team_tmp = new Team(NULL_TEAM, -1);
+		//Team team_tmp = new Team(NULL_TEAM, -1);
 		
 		// turn the array of players into a list so we can do efficient
 		// randomization without lots of reallocation
-		ArrayList<Player> playerList = new ArrayList<Player>(players.length);
+		/*ArrayList<Player> playerList = new ArrayList<Player>(players.length);
 		for (Player p : players) {
 			playerList.add(p);
 			//Initialize the dictionary and add this player entry, with a dummy team object.
 			player_to_team_dict.put(p,team_tmp);
-		}
+		}*/
 		
 		final int numTeams = teamNames.length;
 		int teamIndex = 0;
