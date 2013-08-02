@@ -7,12 +7,35 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
-
-    <EditText android:id="@+id/edit_message"
+    
+    <TextView android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:layout_marginTop="10dp"      
+        android:text="Number of Teams"
+        />
+    
+     <TextView android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:layout_marginTop="70dp"      
+        android:text="Number of Players"
+        />
+    
+    <EditText android:id="@+id/amount_of_teams"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/edit_message" />
+	    android:inputType="number"
+	    android:digits="0123456789"
+	    android:layout_marginTop="30dp"
+	    android:hint="@string/amount_of_teams" />
     
+    <EditText android:id="@+id/amount_of_players"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+	    android:inputType="number"
+	    android:digits="0123456789"
+	    android:layout_marginTop="90dp"
+	    android:hint="@string/amount_of_players" />
+        
     <Button
         android:id="@+id/submitButton"
         android:layout_width="wrap_content"

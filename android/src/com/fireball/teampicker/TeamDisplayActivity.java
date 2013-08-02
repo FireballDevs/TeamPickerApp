@@ -1,16 +1,27 @@
 package com.fireball.teampicker;
 
+import java.util.ArrayList;
+
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+@SuppressWarnings("unused")
 public class TeamDisplayActivity extends Activity {
+	
+	
+	private String[] playerNames;
+	private int numberOfTeams;
+	private int numberOfPlayers;
+	private static final String TAG="TeamDisplayActivity"; 
 	
 	/**
 	 * Remember the onCreate is where you start when the new activity gets
@@ -20,21 +31,33 @@ public class TeamDisplayActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		//setContentView(R.layout.activity_team_display);
+
 		// Show the Up button in the action bar.
 		setupActionBar();
 		
 		// Set up intent to get the data from last activity.
 		Intent intent = getIntent();
-		String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
 		
+		// Check default numbers for numberOfTeams/Players and make sure we set them correctly. 
+		numberOfTeams = intent.getIntExtra(MainActivity.EXTRA_NUMBER_OF_TEAMS, 2);
+		numberOfPlayers = intent.getIntExtra(MainActivity.EXTRA_NUMBER_OF_PLAYERS, 4);
+		
+		// TODO: will need later once player names are in.
+		//playerNames = intent.getStringArrayExtra(MainActivity.EXTRA_PLAYER_NAMES);
+		//Player[] players = this.makePlayerObjectFromStringOfNames(playerNames);
+		
+		// TODO: hardcoded team names until added to MainActivity.
+		String[] teamNames = {"Team1", "Team2"};
+		
+		// TODO: hardcoded players until added to MainActivity.
+		ArrayList<Player> players = this.makePlayerObject();
+		
+		// Randomize it.
+		Team[] teams = TeamCalculator.Randomize(teamNames, players);
+
 		// Spit out the last activity's data.
-		TextView tView = new TextView(this);
-		tView.setTextSize(50);
-		tView.setText(message);
-		
-		// Put it on the view.
-		setContentView(tView);
+		this.printTeams(teams, this);
+
 	}
 
 	/**
@@ -69,6 +92,71 @@ public class TeamDisplayActivity extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	// TODO: hardcoded number of players.
+	// Left this method because I may use it again in the future.
+	public Player[] makePlayerObjectFromStringOfNames(String[] names) {
+		Player[] players = new Player[4];
+		
+		for(int i = 0; i < 4; i++) {
+			players[i] = new Player(names[i], i);
+		}
+		
+		return players;
+	}
+	
+	/**
+	 * This is hard-coded until the MainActivity View takes Players names.
+	 * @return playerList - list of all players
+	 */
+	public ArrayList<Player> makePlayerObject() {
+		Player tom = new Player("Tom", 1);
+		Player patty = new Player("Patty", 1);
+		Player john = new Player("John", 2);
+		Player ian = new Player("Ian", 3);
+
+		ArrayList<Player> playerList = new ArrayList<Player>();
+		playerList.add(patty);
+		playerList.add(john);
+		playerList.add(ian);
+		playerList.add(tom);
+		
+		return playerList;
+	}
+	
+	/**
+	 * Prints out the team to a string that is displayed in a textView to the user.
+	 * @param teams - Array of teams from Randomize function.
+	 * @param ctx - Current Context needed for setting text to textView.
+	 */
+	private void printTeams(Team[] teams, Context ctx) {
+		String message = "";
+		Log.d(TAG, "teams: " + teams.toString());
+		for(int i=0; i<teams.length; i++) {
+			message += teams[i].getName();
+			message += "\n\n";
+			ArrayList<Player> Players = teams[i].getPlayers();
+			Log.d(TAG, "players for " + teams[i].getName() + " : " + Players.toString());
+			for(int j = 0; j < Players.size(); j++ ) {
+				message += Players.get(j).getName();
+				message += "\n";
+			}
+			message += "\n";
+		}
+		
+		// Create the view.
+		TextView tView = new TextView(this);
+		tView.setTextSize(25);
+		tView.setText(message);
+		
+		// TODO: Once theres a longer list of players make sure you can scroll vertically to view all players.
+		// If not add it here.
+		
+		// Put it on the view.
+		setContentView(tView);
+		
+		
 	}
 
 }
