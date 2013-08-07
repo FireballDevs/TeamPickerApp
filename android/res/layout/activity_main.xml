@@ -47,4 +47,13 @@
         android:text="@string/submit"
         android:onClick="submitInfo" />
 
+    <CheckBox
+        android:id="@+id/namesCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/amount_of_players"
+        android:layout_below="@+id/amount_of_players"
+        android:layout_marginTop="25dp"
+        android:text="@string/add_names_activity_check" />
+
 </RelativeLayout>
