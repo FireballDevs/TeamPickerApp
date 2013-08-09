@@ -3,7 +3,6 @@
 
     <string name="app_name">Team Picker</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
     <string name="title_activity_team_display">Teams</string>
     <string name="submit">Submit</string>
     <string name="edit_message">Enter text</string>
@@ -13,6 +12,6 @@
     <color name="grey">#CCCCCC</color>
     <color name="light_blue">#5577BB</color>
     <color name="white">#FFFFFF</color>
-    
-    
+    <string name="generated_teams">Generated Teams</string>
+
 </resources>
