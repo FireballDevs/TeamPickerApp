@@ -3,11 +3,11 @@
 
     <string name="app_name">Team Picker</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
     <string name="title_activity_team_display">Teams</string>
     <string name="submit">Submit</string>
     <string name="edit_message">Enter text</string>
     <string name="amount_of_teams">2</string>
     <string name="amount_of_players">2</string>
+    <string name="generated_teams">Generated Teams</string>
 
 </resources>
