@@ -37,7 +37,7 @@
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="40dp"
         android:layout_alignRight="@+id/textView2"
         android:layout_below="@+id/imageView1"
         android:text="Number of Teams" />
@@ -63,18 +63,15 @@
         android:hint="@string/amount_of_teams"
         android:inputType="number" />
 
-    <Button
-        android:id="@+id/button1"
+    <ImageButton
+        android:id="@+id/imageButton1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="false"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
         android:layout_below="@+id/amount_of_players"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:background="@null"
         android:onClick="submitInfo"
-        android:background="@drawable/custom_submit"
-        android:textColor="@color/white"
-        android:textColorHighlight="@color/white"
-        android:text="Pick Teams!" />
+        android:src="@drawable/go_button" />
 
 </RelativeLayout>
