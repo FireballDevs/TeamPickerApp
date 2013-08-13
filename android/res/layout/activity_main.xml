@@ -6,54 +6,62 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@string/light_blue"    
     tools:context=".MainActivity" >
-    
-    <TextView android:layout_width="wrap_content"
-        android:layout_height="wrap_content" 
-        android:layout_marginTop="10dp"      
-        android:text="Number of Teams"
-        />
-    
-     <TextView android:layout_width="wrap_content"
-        android:layout_height="wrap_content" 
-        android:layout_marginTop="70dp"      
-        android:text="Number of Players"
-        />
-    
-    <EditText android:id="@+id/amount_of_teams"
+
+    <TextView
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-	    android:inputType="number"
-	    android:digits="0123456789"
-	    android:layout_marginTop="30dp"
-	    android:hint="@string/amount_of_teams" />
-    
-    <EditText android:id="@+id/amount_of_players"
+        android:layout_marginTop="170dp"
+        android:textColor="@string/yellow"
+        android:text="Number of Teams" />
+
+    <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-	    android:inputType="number"
-	    android:digits="0123456789"
-	    android:layout_marginTop="90dp"
-	    android:hint="@string/amount_of_players" />
-        
+        android:layout_marginTop="240dp"
+        android:textColor="@string/yellow"        
+        android:text="Number of Players" />
+
+    <EditText
+        android:id="@+id/amount_of_teams"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="190dp"
+        android:digits="0123456789"
+        android:hint="@string/amount_of_teams"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/amount_of_players"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="260dp"
+        android:digits="0123456789"
+        android:hint="@string/amount_of_players"
+        android:inputType="number" />
+
     <Button
         android:id="@+id/submitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_marginBottom="45dp"
+        android:layout_marginBottom="30dp"
         android:layout_marginRight="30dp"
-        android:text="@string/submit"
-        android:onClick="submitInfo" />
+        android:onClick="submitInfo"
+        android:background="@drawable/custom_submit"
+        android:text="@string/submit" />
 
-    <CheckBox
-        android:id="@+id/namesCheckBox"
+    <ImageView
+        android:id="@+id/imageView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/amount_of_players"
-        android:layout_below="@+id/amount_of_players"
-        android:layout_marginTop="25dp"
-        android:text="@string/add_names_activity_check" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        android:src="@drawable/banner" />
 
 </RelativeLayout>

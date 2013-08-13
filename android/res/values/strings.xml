@@ -10,5 +10,9 @@
     <string name="amount_of_teams">2</string>
     <string name="amount_of_players">2</string>
     <string name="add_names_activity_check">Add Player Names</string>
-
+    <string name="light_blue">#6888D9</string>
+    <string name="yellow">#FFFF66</string>
+    <string name="light_yellow">#FFFF99</string>
+    
+    
 </resources>
