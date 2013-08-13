@@ -6,54 +6,23 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@string/light_blue"    
     tools:context=".MainActivity" >
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="170dp"
-        android:textColor="@string/yellow"
-        android:text="Number of Teams" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="240dp"
-        android:textColor="@string/yellow"        
-        android:text="Number of Players" />
-
-    <EditText
-        android:id="@+id/amount_of_teams"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="190dp"
-        android:digits="0123456789"
-        android:hint="@string/amount_of_teams"
-        android:inputType="number" />
 
     <EditText
         android:id="@+id/amount_of_players"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="260dp"
+        android:layout_centerHorizontal="true"        
+        android:layout_alignLeft="@+id/amount_of_teams"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="10dp"
         android:digits="0123456789"
+        android:ems="10"
         android:hint="@string/amount_of_players"
-        android:inputType="number" />
+        android:inputType="number" >
 
-    <Button
-        android:id="@+id/submitButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="30dp"
-        android:layout_marginRight="30dp"
-        android:onClick="submitInfo"
-        android:background="@drawable/custom_submit"
-        android:text="@string/submit" />
+        <requestFocus />
+    </EditText>
 
     <ImageView
         android:id="@+id/imageView1"
@@ -61,7 +30,50 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="35dp"
         android:src="@drawable/banner" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_alignRight="@+id/textView2"
+        android:layout_below="@+id/imageView1"
+        android:text="Number of Teams" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/amount_of_teams"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="Number of Players" />
+
+    <EditText
+        android:id="@+id/amount_of_teams"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:digits="0123456789"
+        android:ems="10"
+        android:hint="@string/amount_of_teams"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:onClick="submitInfo"
+        android:background="@drawable/custom_submit"
+        android:textColor="@color/white"
+        android:textColorHighlight="@color/white"
+        android:text="Pick Teams!" />
 
 </RelativeLayout>
