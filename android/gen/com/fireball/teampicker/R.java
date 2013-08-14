@@ -27,16 +27,15 @@ public final class R {
     }
     public static final class drawable {
         public static final int banner=0x7f020000;
-        public static final int custom_submit=0x7f020001;
-        public static final int go_button=0x7f020002;
-        public static final int ic_launcher=0x7f020003;
+        public static final int go_button=0x7f020001;
+        public static final int ic_launcher=0x7f020002;
     }
     public static final class id {
         public static final int action_settings=0x7f090006;
         public static final int amount_of_players=0x7f090000;
         public static final int amount_of_teams=0x7f090001;
-        public static final int imageButton1=0x7f090005;
         public static final int imageView1=0x7f090003;
+        public static final int submitImageButton=0x7f090005;
         public static final int textView1=0x7f090004;
         public static final int textView2=0x7f090002;
     }

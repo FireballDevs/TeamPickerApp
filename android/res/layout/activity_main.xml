@@ -64,7 +64,7 @@
         android:inputType="number" />
 
     <ImageButton
-        android:id="@+id/imageButton1"
+        android:id="@+id/submitImageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/amount_of_players"

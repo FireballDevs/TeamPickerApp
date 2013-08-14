@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 public class MainActivity extends Activity {
@@ -22,6 +23,13 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // get reference to GUI image button
+        configureGoButton();       
+    }
+    
+    private void configureGoButton() {
+    	ImageButton goButton = (ImageButton) findViewById(R.id.submitImageButton);
+    	goButton.setOnTouchListener(new ButtonHighlighterOnTouchListener(goButton));
     }
 
     @Override
