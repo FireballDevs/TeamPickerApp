@@ -9,5 +9,10 @@
     <string name="edit_message">Enter text</string>
     <string name="amount_of_teams">2</string>
     <string name="amount_of_players">2</string>
-
+    <string name="add_names_activity_check">Add Player Names</string>
+    <color name="grey">#CCCCCC</color>
+    <color name="light_blue">#5577BB</color>
+    <color name="white">#FFFFFF</color>
+    
+    
 </resources>

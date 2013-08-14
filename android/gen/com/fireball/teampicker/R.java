@@ -10,6 +10,11 @@ package com.fireball.teampicker;
 public final class R {
     public static final class attr {
     }
+    public static final class color {
+        public static final int grey=0x7f060000;
+        public static final int light_blue=0x7f060001;
+        public static final int white=0x7f060002;
+    }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
 
@@ -21,24 +26,30 @@ public final class R {
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
+        public static final int banner=0x7f020000;
+        public static final int go_button=0x7f020001;
+        public static final int ic_launcher=0x7f020002;
     }
     public static final class id {
-        public static final int action_settings=0x7f080003;
-        public static final int amount_of_players=0x7f080001;
-        public static final int amount_of_teams=0x7f080000;
-        public static final int submitButton=0x7f080002;
+        public static final int action_settings=0x7f090006;
+        public static final int amount_of_players=0x7f090000;
+        public static final int amount_of_teams=0x7f090001;
+        public static final int imageView1=0x7f090003;
+        public static final int submitImageButton=0x7f090005;
+        public static final int textView1=0x7f090004;
+        public static final int textView2=0x7f090002;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
         public static final int activity_team_display=0x7f030001;
     }
     public static final class menu {
-        public static final int main=0x7f070000;
-        public static final int team_display=0x7f070001;
+        public static final int main=0x7f080000;
+        public static final int team_display=0x7f080001;
     }
     public static final class string {
         public static final int action_settings=0x7f050001;
+        public static final int add_names_activity_check=0x7f050008;
         public static final int amount_of_players=0x7f050007;
         public static final int amount_of_teams=0x7f050006;
         public static final int app_name=0x7f050000;
@@ -69,10 +80,10 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f060000;
+        public static final int AppBaseTheme=0x7f070000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f060001;
+        public static final int AppTheme=0x7f070001;
     }
 }
