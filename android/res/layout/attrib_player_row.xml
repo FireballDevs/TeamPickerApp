@@ -4,6 +4,7 @@
     <TextView
         android:id="@+id/player_name"
         android:lineSpacingExtra="2dip"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textColor="@color/white"/>
 
 </TableRow>

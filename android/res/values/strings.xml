@@ -12,6 +12,7 @@
     <color name="grey">#CCCCCC</color>
     <color name="light_blue">#5577BB</color>
     <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
     <string name="generated_teams">Generated Teams</string>
 
 </resources>
