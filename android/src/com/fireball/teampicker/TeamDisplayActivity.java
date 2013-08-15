@@ -48,24 +48,18 @@ public class TeamDisplayActivity extends Activity {
 		numberOfPlayers = intent.getIntExtra(
 				MainActivity.EXTRA_NUMBER_OF_PLAYERS, 4);
 
-		// TODO: will need later once player names are in.
-		// playerNames =
-		// intent.getStringArrayExtra(MainActivity.EXTRA_PLAYER_NAMES);
-		// Player[] players =
-		// this.makePlayerObjectFromStringOfNames(playerNames);
+		String[] teamNames = new String[numberOfTeams];
+		for (int teamIndex = 0; teamIndex < numberOfTeams; teamIndex++) {
+			teamNames[teamIndex] = "Team " + (teamIndex + 1);
+		}
 
-		// TODO: hardcoded team names until added to MainActivity.
-		String[] teamNames = { "Team1", "Team2" };
+		ArrayList<Player> players = this.createPlayerList(numberOfPlayers);
 
-		// TODO: hardcoded players until added to MainActivity.
-		ArrayList<Player> players = this.makePlayerObject();
-
-		// Randomize it.
+		// Randomize it
 		Team[] teams = TeamCalculator.Randomize(teamNames, players);
 
 		// Spit out the last activity's data.
 		this.printTeams(teams, this);
-
 	}
 
 	/**
@@ -102,34 +96,18 @@ public class TeamDisplayActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 
-	// TODO: hardcoded number of players.
-	// Left this method because I may use it again in the future.
-	public Player[] makePlayerObjectFromStringOfNames(String[] names) {
-		Player[] players = new Player[4];
-
-		for (int i = 0; i < 4; i++) {
-			players[i] = new Player(names[i], i);
-		}
-
-		return players;
-	}
-
 	/**
-	 * This is hard-coded until the MainActivity View takes Players names.
+	 * Generates a list of players for a single team
 	 * 
 	 * @return playerList - list of all players
 	 */
-	public ArrayList<Player> makePlayerObject() {
-		Player tom = new Player("Tom", 1);
-		Player patty = new Player("Patty", 1);
-		Player john = new Player("John", 2);
-		Player ian = new Player("Ian", 3);
-
+	public ArrayList<Player> createPlayerList(int numPlayers) {
 		ArrayList<Player> playerList = new ArrayList<Player>();
-		playerList.add(patty);
-		playerList.add(john);
-		playerList.add(ian);
-		playerList.add(tom);
+		Player tempPlayer;
+		for (int playerIndex = 0; playerIndex < numPlayers; playerIndex++) {
+			tempPlayer = new Player("Player " + (playerIndex + 1), playerIndex);
+			playerList.add(tempPlayer);
+		}
 
 		return playerList;
 	}
@@ -145,7 +123,6 @@ public class TeamDisplayActivity extends Activity {
 	 */
 	private void printTeams(Team[] teams, Context ctx) {
 		String message = "";
-		Log.d(TAG, "teams: " + teams.toString());
 		for (int i = 0; i < teams.length; i++) {
 			message += teams[i].getName();
 			message += "\n\n";
@@ -160,53 +137,18 @@ public class TeamDisplayActivity extends Activity {
 			message += "\n";
 		}
 
-		/* For GUI testing only. TODO: remove */
-		ArrayList<Team> teamList = new ArrayList<Team>();
-
 		int teamIndex = 0, playerIndex = 0;
-
-		Team tempTeam = new Team("Team 1", teamIndex++);
-		tempTeam.addPlayer(new Player("Player" + playerIndex++));
-		teamList.add(tempTeam);
-
-		tempTeam = new Team("Team 2", teamIndex++);
-		tempTeam.addPlayer(new Player("Player" + playerIndex++));
-		tempTeam.addPlayer(new Player("Player" + playerIndex++));
-		teamList.add(tempTeam);
-
-		tempTeam = new Team("Team 3", teamIndex++);
-		tempTeam.addPlayer(new Player("Player" + playerIndex++));
-		tempTeam.addPlayer(new Player("Player" + playerIndex++));
-		tempTeam.addPlayer(new Player("Player" + playerIndex++));
-		teamList.add(tempTeam);
-
-		tempTeam = new Team("Team 4", teamIndex++);
-		tempTeam.addPlayer(new Player("Player" + playerIndex++));
-		tempTeam.addPlayer(new Player("Player" + playerIndex++));
-		tempTeam.addPlayer(new Player("Player" + playerIndex++));
-		tempTeam.addPlayer(new Player("Player" + playerIndex++));
-		teamList.add(tempTeam);
-
-		tempTeam = new Team("Team 5", teamIndex++);
-		tempTeam.addPlayer(new Player("Player" + playerIndex++));
-		tempTeam.addPlayer(new Player("Player" + playerIndex++));
-		tempTeam.addPlayer(new Player("Player" + playerIndex++));
-		tempTeam.addPlayer(new Player("Player" + playerIndex++));
-		tempTeam.addPlayer(new Player("Player" + playerIndex++));
-		teamList.add(tempTeam);
-		/* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
-
 		LayoutInflater inflater = getLayoutInflater();
 
-		//get the scroll view from the activity XML
+		// get the scroll view from the activity XML
 		ScrollView sv = (ScrollView) inflater.inflate(
 				R.layout.activity_team_display, null);
 
-		//get the table from inside the scroll view
+		// get the table from inside the scroll view
 		TableLayout table = (TableLayout) sv.findViewById(R.id.Team_Table_View);
 
-		//iterate through all teams and players and generate the table
-		for (Team aTeam : teamList) {
+		// iterate through all teams and players and generate the table
+		for (Team aTeam : teams) {
 			TableRow teamRow = (TableRow) inflater.inflate(
 					R.layout.attrib_team_row, null);
 
@@ -221,7 +163,7 @@ public class TeamDisplayActivity extends Activity {
 
 				TextView playerTV = (TextView) playerRow
 						.findViewById(R.id.player_name);
-				
+
 				playerTV.setText('\t' + aPlayer.getName());
 				table.addView(playerRow);
 			}

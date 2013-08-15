@@ -19,7 +19,6 @@ public class TeamCalculator {
 	private static final String NULL_TEAM = "NULL_TEAM";
 	
 	private static Dictionary<Player, Team> player_to_team_dict = new Hashtable<Player, Team>();
-	
 
 	public static Dictionary<Player, Team> getPlayer_to_team_dict() {
 		return player_to_team_dict;
