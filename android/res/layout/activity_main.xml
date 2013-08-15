@@ -17,6 +17,7 @@
         android:layout_below="@+id/textView2"
         android:layout_marginTop="10dp"
         android:digits="0123456789"
+        android:maxLength="3"
         android:ems="10"
         android:hint="@string/amount_of_players"
         android:inputType="number" >
@@ -60,6 +61,7 @@
         android:layout_marginTop="10dp"
         android:digits="0123456789"
         android:ems="10"
+        android:maxLength="3"
         android:hint="@string/amount_of_teams"
         android:inputType="number" />
 
