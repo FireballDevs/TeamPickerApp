@@ -4,6 +4,7 @@ package com.fireball.teampicker;
 import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.Hashtable;
+import java.util.List;
 import java.util.Random;
 import com.fireball.teampicker.Team;
 
@@ -36,7 +37,7 @@ public class TeamCalculator {
 	 *            array of player objects
 	 * @return array of two or more randomized teams
 	 */
-	public static Team[] Randomize(String[] teamNames, ArrayList<Player> playerList) {
+	public static Team[] Randomize(String[] teamNames, List<Player> playerList) {
 		
 		/*
 		 * When we fist call this method, clear out the old dictionary as the values in it

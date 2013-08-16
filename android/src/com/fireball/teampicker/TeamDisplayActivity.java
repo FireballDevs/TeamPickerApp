@@ -1,6 +1,8 @@
 package com.fireball.teampicker;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -53,7 +55,7 @@ public class TeamDisplayActivity extends Activity {
 			teamNames[teamIndex] = "Team " + (teamIndex + 1);
 		}
 
-		ArrayList<Player> players = this.createPlayerList(numberOfPlayers);
+		List<Player> players = this.createPlayerList(numberOfPlayers);
 
 		// Randomize it
 		Team[] teams = TeamCalculator.Randomize(teamNames, players);
@@ -101,8 +103,8 @@ public class TeamDisplayActivity extends Activity {
 	 * 
 	 * @return playerList - list of all players
 	 */
-	public ArrayList<Player> createPlayerList(int numPlayers) {
-		ArrayList<Player> playerList = new ArrayList<Player>();
+	public List<Player> createPlayerList(int numPlayers) {
+		List<Player> playerList = new ArrayList<Player>(numPlayers);
 		Player tempPlayer;
 		for (int playerIndex = 0; playerIndex < numPlayers; playerIndex++) {
 			tempPlayer = new Player("Player " + (playerIndex + 1), playerIndex);

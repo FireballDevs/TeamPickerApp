@@ -30,8 +30,7 @@ public class MainActivity extends Activity {
 
 	private void configureGoButton() {
 		ImageButton goButton = (ImageButton) findViewById(R.id.submitImageButton);
-		goButton.setOnTouchListener(new ButtonHighlighterOnTouchListener(
-				goButton));
+		goButton.setOnTouchListener(new ButtonHighlighterOnTouchListener(goButton));
 	}
 
 	@Override
@@ -81,20 +80,20 @@ public class MainActivity extends Activity {
 
 		if (numPlayers < numTeams) {
 			numPlayers = numTeams;
-			Toast.makeText(
-					getApplicationContext(),
-					"You need at least as many players as teams!  (added players)",
+			Toast.makeText(getApplicationContext(), "You need at least as many players as teams!  (added players)",
 					Toast.LENGTH_SHORT).show();
+		} else {
+
+			// 3. Once we have the data, add it into the intent as a dictionary
+			// to
+			// pass onto the next Activity (view).
+			// intent.putExtra(EXTRA_MESSAGE, message);
+			intent.putExtra(EXTRA_NUMBER_OF_TEAMS, numTeams);
+			intent.putExtra(EXTRA_NUMBER_OF_PLAYERS, numPlayers);
+
+			// 4. Start the next activity with your intent and dictionary!
+			startActivity(intent);
 		}
-
-		// 3. Once we have the data, add it into the intent as a dictionary to
-		// pass onto the next Activity (view).
-		// intent.putExtra(EXTRA_MESSAGE, message);
-		intent.putExtra(EXTRA_NUMBER_OF_TEAMS, numTeams);
-		intent.putExtra(EXTRA_NUMBER_OF_PLAYERS, numPlayers);
-
-		// 4. Start the next activity with your intent and dictionary!
-		startActivity(intent);
 	}
 
 }
