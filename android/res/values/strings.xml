@@ -9,10 +9,14 @@
     <string name="amount_of_teams">2</string>
     <string name="amount_of_players">2</string>
     <string name="add_names_activity_check">Add Player Names</string>
+    <string name="generated_teams">Generated Teams</string>
+    <string name="number_of_teams">Number of Teams</string>
+    <string name="number_of_players">Number of Players</string>
+    <string name="go_button">Go</string>
+    
     <color name="grey">#CCCCCC</color>
     <color name="light_blue">#5577BB</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
-    <string name="generated_teams">Generated Teams</string>
 
 </resources>

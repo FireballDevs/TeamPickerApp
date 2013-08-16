@@ -11,11 +11,8 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
-	// Sample message.
-	public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
-	public final static String EXTRA_NUMBER_OF_TEAMS = "com.example.myfirstapp.NUMBER_OF_TEAMS";
-	public final static String EXTRA_NUMBER_OF_PLAYERS = "com.example.myfirstapp.NUMBER_OF_PLAYERS";
-	public final static String EXTRA_PLAYER_NAMES = "com.example.myfirstapp.PLAYER_NAMES";
+	public final static String EXTRA_NUMBER_OF_TEAMS = "com.Fireball.TeamPicker.NUMBER_OF_TEAMS";
+	public final static String EXTRA_NUMBER_OF_PLAYERS = "com.Fireball.TeamPicker.NUMBER_OF_PLAYERS";
 
 	public final static String MIN_TEAMS = "2";
 	public final static String MIN_PLAYERS = "2";

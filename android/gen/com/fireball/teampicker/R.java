@@ -61,6 +61,9 @@ public final class R {
         public static final int app_name=0x7f050000;
         public static final int edit_message=0x7f050004;
         public static final int generated_teams=0x7f050008;
+        public static final int go_button=0x7f05000b;
+        public static final int number_of_players=0x7f05000a;
+        public static final int number_of_teams=0x7f050009;
         public static final int submit=0x7f050003;
         public static final int title_activity_team_display=0x7f050002;
     }
